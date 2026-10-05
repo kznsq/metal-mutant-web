@@ -109,3 +109,9 @@ fast enough to finish each pass within one timer tick; a script that waits in a 
   Comments give the addresses of the original routines and variables (for example the
   scheduler `0x15aa` or the variable `cs:[0x381]`).
 - `serve.py`: a small local server for the page and the game files.
+
+## License
+
+The code in this repository is released under the MIT License (see `LICENSE`). *Metal Mutant*
+and its game files belong to their rights holders; they are not included here, and the license
+does not cover them.
