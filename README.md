@@ -19,6 +19,11 @@ timer handling are rewritten from the original program, routine by routine.
 
 ## Running it
 
+**Online:** open https://kznsq.github.io/metal-mutant-web/ and choose your Metal Mutant folder. The
+files are read in your browser and are not uploaded anywhere.
+
+**On your computer:**
+
 ```
 python3 serve.py --game /path/to/METALMUT
 ```
