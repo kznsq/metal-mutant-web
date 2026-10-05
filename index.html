@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Metal Mutant</title>
+<style>
+  :root {
+    --bg: #0b0f0c; --panel: #121a14; --line: #23402a; --fg: #cfe3d2; --dim: #7f9a84;
+    --accent: #5fd068; --warn: #e0a83a;
+    font-family: "Menlo", "SF Mono", ui-monospace, monospace;
+  }
+  * { box-sizing: border-box; }
+  html, body { height: 100%; }
+  body { margin: 0; background: var(--bg); color: var(--fg); display: flex; flex-direction: column;
+         align-items: center; gap: 12px; padding: 16px; }
+  header { width: min(960px, 100%); display: flex; align-items: baseline; justify-content: space-between;
+           gap: 12px; flex-wrap: wrap; }
+  h1 { margin: 0; font-size: 18px; letter-spacing: 0.3em; color: var(--accent); font-weight: 700; }
+  header .meta { color: var(--dim); font-size: 12px; display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
+  select, button, label.button { font: inherit; font-size: 12px; color: var(--fg); background: var(--panel);
+           border: 1px solid var(--line); border-radius: 4px; padding: 4px 8px; cursor: pointer; }
+  #stage { width: min(960px, 100%); aspect-ratio: 4 / 3; background: #000; border: 1px solid var(--line);
+           display: flex; align-items: center; justify-content: center; }
+  canvas { width: 100%; height: 100%; image-rendering: pixelated; image-rendering: crisp-edges; outline: none; }
+  #status { width: min(960px, 100%); color: var(--dim); font-size: 12px; min-height: 1.4em; white-space: pre-wrap; }
+  #picker { width: min(960px, 100%); border: 1px dashed var(--warn); padding: 12px; color: var(--warn); font-size: 13px; }
+  #picker input { display: none; }
+  .keys { width: min(960px, 100%); display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+          gap: 4px 24px; font-size: 12px; color: var(--dim); }
+  .keys b { color: var(--fg); font-weight: 600; }
+</style>
+</head>
+<body>
+<header>
+  <h1>METAL MUTANT</h1>
+  <div class="meta">
+    <span id="frame"></span>
+    <select id="display" title="Display adapter (restarts the game)">
+      <option value="5">VGA</option><option value="3">EGA</option><option value="2">CGA</option>
+    </select>
+    <button id="sound" title="Switch the sound on or off">Sound</button>
+    <button id="autosave" title="Save the game at the start of every scene; LOAD in the menu continues from there">Autosave</button>
+    <button id="forget" title="Delete the games saved in this browser">Forget saves</button>
+  </div>
+</header>
+<div id="stage"><canvas id="screen" width="320" height="200" tabindex="0"></canvas></div>
+<div id="status"></div>
+<div id="picker" hidden>
+  No game files on this server. <label class="button">Choose your Metal Mutant folder
+  <input id="folder" type="file" webkitdirectory multiple></label> — the files are read in this
+  browser and not uploaded.
+</div>
+<div class="keys">
+  <div><b>Arrows</b> walk, climb, crouch</div>
+  <div><b>Home PgUp End PgDn</b> diagonals (<b>\</b> = PgUp, <b>'</b> = End)</div>
+  <div><b>Shift</b> fire / use · <b>Shift + End</b> under a survival module: save</div>
+  <div><b>F1 F2 F3</b> change form</div>
+  <div><b>Return / Space</b> choose in menus</div>
+  <div><b>Escape</b> pause, any key resumes</div>
+  <div><b>Autosave</b> (button above): saves at every new scene; after a death choose LOAD
+    in the menu</div>
+</div>
+<script type="module" src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+# The original game files are never part of this repository; serve.py reads them from ./game
+# or from the folder given with --game.
+/game/
+*.IO
+*.io
+*.FIC
+*.fic
+*.EXE
+*.exe
+
+# Research material kept outside the repository.
+/research/
+
+.DS_Store
+__pycache__/
